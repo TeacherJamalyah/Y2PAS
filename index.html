@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UASA Year 2 English Mastery Hub - All Parts 1-7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fredoka', cursive, sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .bounce-btn {
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.15s ease;
+        }
+        .bounce-btn:active {
+            transform: scale(0.93);
+        }
+        .bounce-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .star-glow {
+            filter: drop-shadow(0 0 8px #f59e0b);
+        }
+
+        .card-pop {
+            animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.92); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-amber-50/50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col justify-between transition-colors duration-300">
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b-4 border-emerald-400 dark:border-emerald-600 px-4 py-3 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div onclick="showSection('dashboard')" class="flex items-center gap-3 cursor-pointer group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-2xl shadow-lg border-2 border-white group-hover:rotate-6 transition-transform text-white">
+                    🌟
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base sm:text-xl text-emerald-700 dark:text-emerald-400 leading-none">UASA Year 2 Mastery</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">CEFR Superminds 1 • Parts 1 to 7 Full Practice</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="bg-amber-100 dark:bg-amber-950/80 border-2 border-amber-400 text-amber-800 dark:text-amber-300 px-3.5 py-1.5 rounded-2xl font-black text-sm flex items-center gap-2 shadow-inner">
+                    <i class="fa-solid fa-star text-amber-500 text-lg star-glow"></i>
+                    <span id="star-count">0</span>
+                </div>
+
+                <button onclick="toggleAudio()" id="audio-toggle-btn" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 border-2 border-slate-300 flex items-center justify-center text-base bounce-btn shadow" title="Toggle Speech">
+                    <i id="audio-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 border-2 border-slate-300 flex items-center justify-center text-base bounce-btn shadow" title="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto p-4 sm:p-6 flex-grow">
+
+        <!-- DASHBOARD -->
+        <section id="sec-dashboard" class="space-y-6">
+            <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-500 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border-4 border-emerald-200">
+                <div class="max-w-2xl relative z-10 space-y-3">
+                    <span class="bg-white/30 text-white font-extrabold text-xs uppercase px-3.5 py-1.5 rounded-full backdrop-blur-sm">Official School Format</span>
+                    <h2 class="text-3xl sm:text-4xl font-black drop-shadow-md">Year 2 UASA Practice Hub! 🎈</h2>
+                    <p class="text-emerald-100 text-xs sm:text-sm font-semibold leading-relaxed">
+                        Complete practice for <strong>Parts 1, 2, 3, 4, 5, 6 & 7</strong> according to the Year 2 English exam format!
+                    </p>
+                </div>
+                <div class="absolute -right-4 -bottom-8 text-9xl opacity-20 select-none">
+                    🧸
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Vocab Flashcards -->
+                <div onclick="startVocabModule()" class="bg-white dark:bg-slate-800 border-4 border-amber-300 dark:border-amber-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center text-4xl">
+                            🎴
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Vocab Flashcards</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Superminds 1 key words with audio pronunciation.
+                        </p>
+                    </div>
+                    <button class="w-full bg-amber-500 hover:bg-amber-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-amber-700">
+                        Explore Words 🚀
+                    </button>
+                </div>
+
+                <!-- Part 1 & 2 -->
+                <div onclick="startQuizModule()" class="bg-white dark:bg-slate-800 border-4 border-sky-300 dark:border-sky-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-sky-100 dark:bg-sky-900/60 flex items-center justify-center text-4xl">
+                            ❓
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 1 & 2 Quiz</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Short texts, picture signs & cloze text questions.
+                        </p>
+                    </div>
+                    <button class="w-full bg-sky-500 hover:bg-sky-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-sky-700">
+                        Start Parts 1 & 2 🎯
+                    </button>
+                </div>
+
+                <!-- Part 3 Passage Comprehension -->
+                <div onclick="startPart3Module()" class="bg-white dark:bg-slate-800 border-4 border-indigo-300 dark:border-indigo-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-100 dark:bg-indigo-900/60 flex items-center justify-center text-4xl">
+                            📖
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 3: Reading</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Read short stories and answer 5 comprehension questions.
+                        </p>
+                    </div>
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-indigo-700">
+                        Read & Answer 📚
+                    </button>
+                </div>
+
+                <!-- Part 4 Matching -->
+                <div onclick="startPart4Module()" class="bg-white dark:bg-slate-800 border-4 border-teal-300 dark:border-teal-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-teal-100 dark:bg-teal-900/60 flex items-center justify-center text-4xl">
+                            🔍
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 4: Matching</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Match statements to correct characters (Octo, Misti, Nony).
+                        </p>
+                    </div>
+                    <button class="w-full bg-teal-500 hover:bg-teal-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-teal-700">
+                        Match Items 🧩
+                    </button>
+                </div>
+
+                <!-- Part 5 Sentence Builder -->
+                <div onclick="startPart5Module()" class="bg-white dark:bg-slate-800 border-4 border-purple-300 dark:border-purple-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-100 dark:bg-purple-900/60 flex items-center justify-center text-4xl">
+                            🧩
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 5: Sentence Builder</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Unscramble word blocks to form correct Year 2 sentences.
+                        </p>
+                    </div>
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-purple-700">
+                        Build Sentences 📝
+                    </button>
+                </div>
+
+                <!-- Part 6 Short Notes -->
+                <div onclick="startPart6Module()" class="bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center text-4xl">
+                            ✉️
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 6: Short Notes</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Write short messages and notes (15–30 words).
+                        </p>
+                    </div>
+                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-emerald-700">
+                        Write Short Notes ✉️
+                    </button>
+                </div>
+
+                <!-- Part 7 Guided Writing -->
+                <div onclick="startPart7Module()" class="bg-white dark:bg-slate-800 border-4 border-rose-300 dark:border-rose-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between sm:col-span-2 lg:col-span-2">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-rose-100 dark:bg-rose-900/60 flex items-center justify-center text-4xl">
+                            ✍️
+                        </div>
+                        <h3 class="text-base font-black text-slate-900 dark:text-white">Part 7: Guided Story & Passage</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            Fill in guided writing prompts using given words to complete full messages or descriptions.
+                        </p>
+                    </div>
+                    <button class="w-full bg-rose-500 hover:bg-rose-600 text-white font-black py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-rose-700">
+                        Practice Guided Writing 🎨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOCAB -->
+        <section id="sec-vocab" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <span id="vocab-progress-text" class="text-xs sm:text-sm font-black text-amber-600 dark:text-amber-400">Card 1 of 8</span>
+            </div>
+
+            <div class="max-w-xl mx-auto bg-white dark:bg-slate-800 border-4 border-amber-300 dark:border-amber-600 rounded-3xl p-8 shadow-2xl text-center space-y-6 card-pop">
+                <div id="vocab-icon" class="text-8xl py-4 select-none">
+                    🚲
+                </div>
+                <div class="space-y-2">
+                    <span id="vocab-category" class="bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-extrabold text-xs px-3 py-1 rounded-full uppercase">Category</span>
+                    <h3 id="vocab-word" class="text-3xl font-black text-slate-900 dark:text-white">Word</h3>
+                    <p id="vocab-example" class="text-sm font-bold text-slate-600 dark:text-slate-300 italic">"Example sentence goes here."</p>
+                </div>
+
+                <div class="flex justify-center gap-4 pt-2">
+                    <button onclick="speakCurrentVocab()" class="bg-amber-500 hover:bg-amber-600 text-white font-black px-6 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-md border-b-4 border-amber-700 bounce-btn">
+                        <i class="fa-solid fa-volume-high text-base"></i> Listen Word
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <button onclick="prevVocab()" class="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-extrabold px-4 py-2 rounded-2xl text-xs bounce-btn">
+                        ← Previous
+                    </button>
+                    <button onclick="nextVocab()" class="bg-amber-500 text-white font-extrabold px-6 py-2 rounded-2xl text-xs bounce-btn border-b-4 border-amber-700">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ (PART 1 & 2) -->
+        <section id="sec-quiz" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-sky-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Parts 1 & 2</span>
+                    <span id="quiz-progress-text" class="text-xs sm:text-sm font-black text-sky-600 dark:text-sky-400">Question 1 of 8</span>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-white dark:bg-slate-800 border-4 border-sky-300 dark:border-sky-600 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 card-pop">
+                <div class="text-center space-y-3">
+                    <div id="quiz-icon" class="text-6xl mx-auto py-2">⚽</div>
+                    <span id="quiz-theme" class="bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-extrabold text-xs px-3 py-1 rounded-full uppercase">Topic</span>
+                    <h3 id="quiz-q-text" class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
+                        Question text goes here?
+                    </h3>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3"></div>
+
+                <div id="quiz-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+            </div>
+        </section>
+
+        <!-- PART 3 -->
+        <section id="sec-part3" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-indigo-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 3 Reading</span>
+                    <span id="p3-progress-text" class="text-xs sm:text-sm font-black text-indigo-600 dark:text-indigo-400">Question 1 of 5</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Reading Text -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 border-4 border-indigo-300 dark:border-indigo-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between border-b pb-3 border-indigo-100 dark:border-indigo-900">
+                        <span class="bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 font-black text-xs px-3 py-1 rounded-full uppercase">Read Passage</span>
+                        <button onclick="speakP3Text()" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-volume-high"></i> Listen
+                        </button>
+                    </div>
+                    <div id="p3-passage-box" class="bg-indigo-50/50 dark:bg-slate-900 p-4 rounded-2xl text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 leading-relaxed space-y-3 whitespace-pre-line">
+                        <!-- Dynamic Passage Content -->
+                    </div>
+                </div>
+
+                <!-- Question Area -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 border-4 border-indigo-300 dark:border-indigo-600 rounded-3xl p-6 shadow-xl space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-black text-indigo-500 uppercase">Multiple Choice Question</span>
+                        <h3 id="p3-question-text" class="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                            <!-- Question text -->
+                        </h3>
+                    </div>
+
+                    <div id="p3-options-container" class="space-y-3"></div>
+
+                    <div id="p3-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4 -->
+        <section id="sec-part4" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-teal-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 4 Matching</span>
+                    <span id="p4-progress-text" class="text-xs sm:text-sm font-black text-teal-600 dark:text-teal-400">Statement 1 of 5</span>
+                </div>
+            </div>
+
+            <!-- Profiles Grid -->
+            <div id="p4-profiles-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Profile Cards dynamically inserted -->
+            </div>
+
+            <!-- Question Matching Box -->
+            <div class="max-w-2xl mx-auto bg-white dark:bg-slate-800 border-4 border-teal-300 dark:border-teal-600 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 card-pop text-center">
+                <span class="bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 font-black text-xs px-3 py-1 rounded-full uppercase">Who is described?</span>
+                <h3 id="p4-statement-text" class="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                    <!-- Statement text -->
+                </h3>
+
+                <div id="p4-buttons-container" class="flex flex-wrap justify-center gap-3 pt-2">
+                    <!-- Character buttons -->
+                </div>
+
+                <div id="p4-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+            </div>
+        </section>
+
+        <!-- PART 5 SENTENCE BUILDER -->
+        <section id="sec-part5" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-purple-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 5 Builder</span>
+                    <span id="p5-progress-text" class="text-xs sm:text-sm font-black text-purple-600 dark:text-purple-400">Task 1 of 5</span>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-white dark:bg-slate-800 border-4 border-purple-300 dark:border-purple-600 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 card-pop text-center">
+                <div class="space-y-2">
+                    <div id="p5-icon" class="text-6xl">🤖</div>
+                    <h3 id="p5-prompt" class="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                        Rearrange the words to form a correct sentence:
+                    </h3>
+                </div>
+
+                <div class="bg-purple-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-dashed border-purple-300 dark:border-purple-700 min-h-[70px] flex flex-wrap gap-2 items-center justify-center" id="p5-target-area">
+                    <span class="text-xs font-bold text-slate-400 italic">Tap words below to build your sentence...</span>
+                </div>
+
+                <div class="flex flex-wrap gap-2 justify-center pt-2 min-h-[50px]" id="p5-word-pool"></div>
+
+                <div class="flex justify-center gap-3 pt-4">
+                    <button onclick="resetP5Words()" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-black px-4 py-2.5 rounded-2xl text-xs bounce-btn">
+                        Reset 🔄
+                    </button>
+                    <button onclick="checkP5Answer()" class="bg-purple-500 hover:bg-purple-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs shadow-md border-b-4 border-purple-700 bounce-btn">
+                        Check Sentence ✨
+                    </button>
+                </div>
+
+                <div id="p5-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+            </div>
+        </section>
+
+        <!-- PART 6 -->
+        <section id="sec-part6" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-emerald-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 6 Writing</span>
+                    <span id="p6-progress-text" class="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400">Prompt 1 of 5</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="bg-emerald-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 space-y-2">
+                        <span class="bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-extrabold text-xs px-2.5 py-1 rounded-lg">Target: 15 - 30 words</span>
+                        <h3 id="p6-prompt-title" class="font-extrabold text-slate-900 dark:text-white text-base"></h3>
+                        <p id="p6-prompt-body" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-amber-300 dark:border-amber-700 space-y-2">
+                        <h4 class="font-extrabold text-amber-800 dark:text-amber-400 text-xs uppercase flex items-center gap-2">
+                            <span>💡</span> Important Points:
+                        </h4>
+                        <ul id="p6-bullet-points" class="text-xs font-bold text-slate-700 dark:text-slate-300 space-y-1"></ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label for="p6-input" class="font-extrabold text-sm text-emerald-700 dark:text-emerald-400">Your Message:</label>
+                        <span id="p6-word-count" class="text-xs font-black px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">0 words</span>
+                    </div>
+
+                    <textarea id="p6-input" oninput="updateP6WordCount()" rows="6" placeholder="Type your short note here..." class="w-full p-4 rounded-2xl border-3 border-emerald-200 dark:border-emerald-800 focus:border-emerald-500 outline-none text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 custom-scrollbar leading-relaxed"></textarea>
+
+                    <div class="flex flex-wrap gap-3 justify-between items-center">
+                        <button onclick="checkP6Submission()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-emerald-700 bounce-btn">
+                            Submit Note & Earn Stars 🌟
+                        </button>
+                        <button onclick="toggleP6ModelAnswer()" class="bg-indigo-500 hover:bg-indigo-600 text-white font-black px-4 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-indigo-700 bounce-btn">
+                            View Model Answer 💡
+                        </button>
+                    </div>
+
+                    <div id="p6-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+
+                    <div id="p6-model-box" class="hidden bg-emerald-50 dark:bg-slate-900 border-2 border-emerald-300 dark:border-emerald-700 p-4 rounded-2xl space-y-2 card-pop">
+                        <h4 class="font-extrabold text-emerald-800 dark:text-emerald-400 text-xs uppercase">✨ Ideal Model Answer:</h4>
+                        <div id="p6-model-text" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 7 -->
+        <section id="sec-part7" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-rose-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 7 Guided Passage</span>
+                    <span id="p7-progress-text" class="text-xs sm:text-sm font-black text-rose-600 dark:text-rose-400">Task 1 of 3</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Prompt & Words Box -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 border-4 border-rose-300 dark:border-rose-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="space-y-2">
+                        <span class="bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">Fill in the Blanks</span>
+                        <h3 id="p7-title" class="font-extrabold text-slate-900 dark:text-white text-base"></h3>
+                        <p id="p7-instructions" class="text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-rose-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-rose-200 dark:border-rose-800 space-y-2">
+                        <h4 class="font-extrabold text-rose-800 dark:text-rose-400 text-xs uppercase flex items-center gap-2">
+                            <span>📦</span> Word Bank:
+                        </h4>
+                        <div id="p7-word-bank" class="flex flex-wrap gap-2 pt-1"></div>
+                    </div>
+                </div>
+
+                <!-- Interactive Guided Fill-in Area -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 border-4 border-rose-300 dark:border-rose-600 rounded-3xl p-6 shadow-xl space-y-6">
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Complete the Message:</h4>
+                    
+                    <div id="p7-passage-interactive" class="bg-slate-50 dark:bg-slate-900 p-5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 leading-loose space-y-2">
+                        <!-- Dynamic Input Selectors -->
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 justify-between items-center pt-2">
+                        <button onclick="checkP7Answers()" class="bg-rose-500 hover:bg-rose-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-rose-700 bounce-btn">
+                            Check Answers ✨
+                        </button>
+                    </div>
+
+                    <div id="p7-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reward Modal -->
+        <div id="reward-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl border-4 border-amber-400 space-y-5 card-pop">
+                <div class="text-7xl">🏆</div>
+                <div class="space-y-1">
+                    <h3 id="modal-title" class="text-3xl font-black text-slate-900 dark:text-white">Fantastic Job!</h3>
+                    <p id="modal-subtitle" class="text-xs text-slate-500 font-bold">You completed the exercise!</p>
+                </div>
+                <div class="flex justify-center gap-2 text-4xl text-amber-400">
+                    <i class="fa-solid fa-star star-glow"></i>
+                    <i class="fa-solid fa-star star-glow"></i>
+                    <i class="fa-solid fa-star star-glow"></i>
+                </div>
+                <button onclick="closeRewardModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-black py-3.5 rounded-2xl text-base shadow-lg border-b-4 border-amber-700 bounce-btn">
+                    Continue Learning 🚀
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 text-center text-xs font-bold text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        UASA English Year 2 Mastery Hub • Parts 1 to 7 Full Practice • Superminds 1 Syllabus
+    </footer>
+
+    <script>
+        const YEAR2_DATA = {
+            flashcards: [
+                { word: "Football", icon: "⚽", category: "Free Time", example: "I play football on Saturdays." },
+                { word: "Monster", icon: "👾", category: "The Old House", example: "There is a funny monster in the room." },
+                { word: "Sweater", icon: "🧥", category: "Get Dressed!", example: "Put on your red sweater." },
+                { word: "Robot", icon: "🤖", category: "The Robot", example: "My robot can move its arms." },
+                { word: "Sandcastle", icon: "🏰", category: "At the Beach", example: "Let's make a sandcastle!" },
+                { word: "Lizard", icon: "🦎", category: "Animals", example: "The green lizard is on the rock." },
+                { word: "Sausage", icon: "🌭", category: "Food", example: "I eat sausages for lunch." },
+                { word: "Helicopter", icon: "🚁", category: "Transport", example: "The red helicopter flies high." }
+            ],
+
+            // PART 1 & 2
+            quiz: [
+                {
+                    theme: "The Old House",
+                    icon: "🏡",
+                    question: "1. 'I live in a nice house. There are three bedrooms, a kitchen, and a living room. There isn't a cellar.' How many bedrooms are there?",
+                    options: ["One", "Two", "Three"],
+                    correctIndex: 2,
+                    explanation: "The text says 'There are three bedrooms'."
+                },
+                {
+                    theme: "Get Dressed!",
+                    icon: "👗",
+                    question: "2. 'This is my favourite dress. My mum bought it for me. It is orange with pink flowers.' What colour is the dress?",
+                    options: ["Pink", "Orange", "Blue"],
+                    correctIndex: 1,
+                    explanation: "The text states 'It is orange'."
+                },
+                {
+                    theme: "Free Time",
+                    icon: "🏃‍♂️",
+                    question: "3. 'Her name is Adila. She can skip, but she can't stand on one leg.' What CAN'T Adila do?",
+                    options: ["Stand on one leg", "Skip", "Jump"],
+                    correctIndex: 0,
+                    explanation: "The text says 'she can't stand on one leg'."
+                },
+                {
+                    theme: "At the Beach",
+                    icon: "🏖️",
+                    question: "4. Complete the sentence: 'My family and I are at the beach. It is sunny and ____.'",
+                    options: ["hot", "cold", "snowy"],
+                    correctIndex: 0,
+                    explanation: "'Hot' matches a sunny day at the beach."
+                },
+                {
+                    theme: "The Old House",
+                    icon: "🕷️",
+                    question: "5. 'There is a spider ______ the stairs.'",
+                    options: ["under", "between", "next"],
+                    correctIndex: 0,
+                    explanation: "Under the stairs is the correct preposition."
+                },
+                {
+                    theme: "Grammar: Can / Can't",
+                    icon: "🦅",
+                    question: "6. 'A bird ______ fly high in the sky.'",
+                    options: ["can", "can't", "is"],
+                    correctIndex: 0,
+                    explanation: "Birds have the ability to fly (can)."
+                },
+                {
+                    theme: "Food",
+                    icon: "🍎",
+                    question: "7. 'I like apples, but I ______ like bananas.'",
+                    options: ["don't", "can", "am"],
+                    correctIndex: 0,
+                    explanation: "'don't' is used for negative likes."
+                },
+                {
+                    theme: "Transport",
+                    icon: "🚆",
+                    question: "8. 'A train travels on a ______.'",
+                    options: ["railway track", "deep ocean", "cloudy sky"],
+                    correctIndex: 0,
+                    explanation: "Trains run on railway tracks."
+                }
+            ],
+
+            // PART 3 READING COMPREHENSION
+            part3Passage: {
+                title: "Hazim's Message to Mum",
+                text: `Dear Mum,
+I have piano practice this Saturday. Can you drop me off at the studio in the morning? After the practice, I want to go to the library and read comic books there.
+
+On Sunday, I am planning to go swimming with my friends at the pool. Then, we want to play the latest computer game together at my house. Hope that you would give me your permission.
+
+Love,
+Hazim`,
+                questions: [
+                    {
+                        q: "1. Who wrote the message?",
+                        options: ["Mum", "Hazim", "Halid"],
+                        correct: 1
+                    },
+                    {
+                        q: "2. What will Hazim do on Saturday morning?",
+                        options: ["Play piano", "Go swimming", "Play computer games"],
+                        correct: 0
+                    },
+                    {
+                        q: "3. Where will Hazim go after his piano practice?",
+                        options: ["To the swimming pool", "To the library", "To the studio"],
+                        correct: 1
+                    },
+                    {
+                        q: "4. Where is Hazim planning to go swimming on Sunday?",
+                        options: ["At the beach", "At the pool", "At school"],
+                        correct: 1
+                    },
+                    {
+                        q: "5. What will Hazim and his friends do after swimming?",
+                        options: ["Play a computer game", "Read comic books", "Practice piano"],
+                        correct: 0
+                    }
+                ]
+            },
+
+            // PART 4 INFORMATION MATCHING
+            part4Profiles: [
+                {
+                    name: "Octo",
+                    icon: "🐙",
+                    details: "I'm Octo. I've got 1 head, 2 legs, and 8 fingers. I can dance!"
+                },
+                {
+                    name: "Misti",
+                    icon: "🦄",
+                    details: "I'm Misti. I've got 3 eyes, 2 arms, and 6 legs. I can run very fast!"
+                },
+                {
+                    name: "Nony",
+                    icon: "👾",
+                    details: "I'm Nony. I've got 2 eyes, 2 arms, and 2 legs. I can sing!"
+                }
+            ],
+            part4Questions: [
+                { q: "1. Who has got three eyes?", answer: "Misti" },
+                { q: "2. Who can sing?", answer: "Nony" },
+                { q: "3. Who has got eight fingers?", answer: "Octo" },
+                { q: "4. Who can run very fast?", answer: "Misti" },
+                { q: "5. Who can dance?", answer: "Octo" }
+            ],
+
+            // PART 5 SENTENCE BUILDER
+            part5: [
+                { icon: "🚲", words: ["I", "ride", "my", "bike", "on", "Sundays."], correct: "I ride my bike on Sundays." },
+                { icon: "🧦", words: ["She", "is", "wearing", "pink", "socks."], correct: "She is wearing pink socks." },
+                { icon: "🐸", words: ["The", "green", "frog", "can", "jump."], correct: "The green frog can jump." },
+                { icon: "🏰", words: ["Let's", "make", "a", "sandcastle", "together."], correct: "Let's make a sandcastle together." },
+                { icon: "🤖", words: ["My", "robot", "can", "move", "its", "legs."], correct: "My robot can move its legs." }
+            ],
+
+            // PART 6 GUIDED SHORT NOTES
+            part6Prompts: [
+                {
+                    title: "Message to a Friend: Free Time Activity",
+                    body: "Write a short note to your friend telling them what you like doing on weekends.",
+                    bullets: ["Name your favorite free-time activity", "State which day you do it", "Invite your friend to join"],
+                    modelAnswer: `Hi Alex,\n\nI like playing football on Saturdays. Would you like to play with me this weekend?\n\nFrom,\nLee`
+                },
+                {
+                    title: "Note to Mum: What to Wear",
+                    body: "Write a quick note to your mother about your sports day clothes.",
+                    bullets: ["Mention the clothes (t-shirt, shorts)", "State the color of your cap", "Ask where your shoes are"],
+                    modelAnswer: `Dear Mum,\n\nI am wearing my blue t-shirt and red cap today. Where are my white sports shoes?\n\nLove,\nSiti`
+                },
+                {
+                    title: "Postcard from the Beach",
+                    body: "Write a short message on a postcard to your cousin about your beach holiday.",
+                    bullets: ["Mention where you are (at the beach)", "Say what you are building or swimming in", "Express your excitement"],
+                    modelAnswer: `Hi Ben,\n\nI am at the beach with my family! I am building a big sandcastle. It is super fun!\n\nYour cousin,\nAdam`
+                }
+            ],
+
+            // PART 7 GUIDED WRITING PASSAGE
+            part7Tasks: [
+                {
+                    title: "Task 1: Email about Malaysia",
+                    instructions: "Select the correct words from the dropdowns to complete the email about visiting Malaysia.",
+                    wordBank: ["Malaysia", "beaches", "swim", "buildings", "famous"],
+                    templateParts: [
+                        "Hi Adam,\nHow are you? I am from ",
+                        { key: "p7_0", correct: "Malaysia", options: ["Malaysia", "Studio", "Kitchen"] },
+                        " and I want to share about my country. Malaysia has beautiful ",
+                        { key: "p7_1", correct: "beaches", options: ["beaches", "books", "shoes"] },
+                        ". You can ",
+                        { key: "p7_2", correct: "swim", options: ["swim", "sleep", "cook"] },
+                        " in the sea. You can also take photos of the tall ",
+                        { key: "p7_3", correct: "buildings", options: ["buildings", "frogs", "pencils"] },
+                        ". It is a ",
+                        { key: "p7_4", correct: "famous", options: ["famous", "cloudy", "sad"] },
+                        " place to visit!"
+                    ]
+                },
+                {
+                    title: "Task 2: My Weekly Activities",
+                    instructions: "Complete the guided passage about weekly activities.",
+                    wordBank: ["park", "swimming", "computer", "Thursdays"],
+                    templateParts: [
+                        "On Mondays, I ride my bike at the ",
+                        { key: "p7_0", correct: "park", options: ["park", "kitchen", "cellar"] },
+                        ". On Tuesdays, I go ",
+                        { key: "p7_1", correct: "swimming", options: ["swimming", "flying", "cooking"] },
+                        " at the pool. On Wednesdays, I play a ",
+                        { key: "p7_2", correct: "computer", options: ["computer", "sweater", "sandcastle"] },
+                        " game with my brother. On ",
+                        { key: "p7_3", correct: "Thursdays", options: ["Thursdays", "Pencils", "Robots"] },
+                        ", I watch TV with my family."
+                    ]
+                }
+            ]
+        };
+
+        // App State
+        let currentStars = 0;
+        let speechEnabled = true;
+
+        let vocabIndex = 0;
+        let quizIndex = 0;
+        let p3Index = 0;
+        let p4Index = 0;
+        let p5Index = 0;
+        let p6Index = 0;
+        let p7Index = 0;
+
+        // Part 5 specific state variables
+        let currentP5Tokens = [];
+        let selectedP5Ids = [];
+
+        // Utility: Fisher-Yates array shuffle
+        function shuffleArray(arr) {
+            const array = [...arr];
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // UI Navigation Function
+        function showSection(secId) {
+            playSound('click');
+            const sections = ['dashboard', 'vocab', 'quiz', 'part3', 'part4', 'part5', 'part6', 'part7'];
+            sections.forEach(s => {
+                const el = document.getElementById(`sec-${s}`);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(`sec-${secId}`);
+            if (target) target.classList.remove('hidden');
+        }
+
+        // ================= FLASHCARDS =================
+        function startVocabModule() {
+            vocabIndex = 0;
+            loadVocabCard();
+            showSection('vocab');
+        }
+
+        function loadVocabCard() {
+            const list = YEAR2_DATA.flashcards;
+            const item = list[vocabIndex];
+
+            document.getElementById('vocab-progress-text').innerText = `Card ${vocabIndex + 1} of ${list.length}`;
+            document.getElementById('vocab-icon').innerText = item.icon;
+            document.getElementById('vocab-category').innerText = item.category;
+            document.getElementById('vocab-word').innerText = item.word;
+            document.getElementById('vocab-example').innerText = `"${item.example}"`;
+
+            speakText(item.word);
+        }
+
+        function speakCurrentVocab() {
+            const item = YEAR2_DATA.flashcards[vocabIndex];
+            speakText(`${item.word}. ${item.example}`);
+        }
+
+        function nextVocab() {
+            if (vocabIndex < YEAR2_DATA.flashcards.length - 1) {
+                vocabIndex++;
+                loadVocabCard();
+            } else {
+                triggerRewardModal("Vocab Master! 🎴", "You explored all Year 2 Flashcards!");
+            }
+        }
+
+        function prevVocab() {
+            if (vocabIndex > 0) {
+                vocabIndex--;
+                loadVocabCard();
+            }
+        }
+
+        // ================= PART 1 & 2 QUIZ =================
+        function startQuizModule() {
+            quizIndex = 0;
+            loadQuizQuestion();
+            showSection('quiz');
+        }
+
+        function loadQuizQuestion() {
+            const list = YEAR2_DATA.quiz;
+            const q = list[quizIndex];
+
+            document.getElementById('quiz-progress-text').innerText = `Question ${quizIndex + 1} of ${list.length}`;
+            document.getElementById('quiz-icon').innerText = q.icon;
+            document.getElementById('quiz-theme').innerText = q.theme;
+            document.getElementById('quiz-q-text').innerText = q.question;
+
+            const feedback = document.getElementById('quiz-feedback-box');
+            feedback.classList.add('hidden');
+
+            const container = document.getElementById('quiz-options-container');
+            container.innerHTML = q.options.map((opt, i) => `
+                <button onclick="answerQuiz(${i})" class="quiz-opt-btn w-full bg-slate-50 dark:bg-slate-700/60 hover:bg-sky-100 dark:hover:bg-sky-950/60 border-2 border-slate-200 dark:border-slate-600 rounded-2xl p-3.5 text-left font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 bounce-btn flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-full bg-sky-200 dark:bg-sky-900 text-sky-800 dark:text-sky-200 flex items-center justify-center font-black shrink-0">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                </button>
+            `).join('');
+
+            speakText(q.question);
+        }
+
+        function answerQuiz(selectedIndex) {
+            const q = YEAR2_DATA.quiz[quizIndex];
+            const feedback = document.getElementById('quiz-feedback-box');
+
+            document.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.classList.add('pointer-events-none'));
+
+            if (selectedIndex === q.correctIndex) {
+                playSound('correct');
+                addStars(5);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `✅ Correct! ${q.explanation}`;
+
+                setTimeout(() => {
+                    quizIndex++;
+                    if (quizIndex < YEAR2_DATA.quiz.length) {
+                        loadQuizQuestion();
+                    } else {
+                        triggerRewardModal("Parts 1 & 2 Complete! 🎯", "Great job answering the questions!");
+                    }
+                }, 1600);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Incorrect. Try again!`;
+
+                setTimeout(() => {
+                    document.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.classList.remove('pointer-events-none'));
+                }, 1200);
+            }
+        }
+
+        // ================= PART 3 READING COMPREHENSION =================
+        function startPart3Module() {
+            p3Index = 0;
+            loadPart3Question();
+            showSection('part3');
+        }
+
+        function loadPart3Question() {
+            const data = YEAR2_DATA.part3Passage;
+            const q = data.questions[p3Index];
+
+            document.getElementById('p3-progress-text').innerText = `Question ${p3Index + 1} of ${data.questions.length}`;
+            document.getElementById('p3-passage-box').innerText = data.text;
+            document.getElementById('p3-question-text').innerText = q.q;
+
+            const feedback = document.getElementById('p3-feedback-box');
+            feedback.classList.add('hidden');
+
+            const container = document.getElementById('p3-options-container');
+            container.innerHTML = q.options.map((opt, i) => `
+                <button onclick="answerPart3(${i})" class="p3-opt-btn w-full bg-slate-50 dark:bg-slate-700/60 hover:bg-indigo-100 dark:hover:bg-indigo-950/60 border-2 border-slate-200 dark:border-slate-600 rounded-2xl p-3.5 text-left font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 bounce-btn flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-full bg-indigo-200 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 flex items-center justify-center font-black shrink-0">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                </button>
+            `).join('');
+
+            speakText(q.q);
+        }
+
+        function speakP3Text() {
+            speakText(YEAR2_DATA.part3Passage.text);
+        }
+
+        function answerPart3(index) {
+            const q = YEAR2_DATA.part3Passage.questions[p3Index];
+            const feedback = document.getElementById('p3-feedback-box');
+
+            document.querySelectorAll('.p3-opt-btn').forEach(b => b.classList.add('pointer-events-none'));
+
+            if (index === q.correct) {
+                playSound('correct');
+                addStars(5);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `🎉 Correct! Well read!`;
+
+                setTimeout(() => {
+                    p3Index++;
+                    if (p3Index < YEAR2_DATA.part3Passage.questions.length) {
+                        loadPart3Question();
+                    } else {
+                        triggerRewardModal("Part 3 Complete! 📖", "You completed the reading comprehension!");
+                    }
+                }, 1500);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Try reading the passage carefully!`;
+
+                setTimeout(() => {
+                    document.querySelectorAll('.p3-opt-btn').forEach(b => b.classList.remove('pointer-events-none'));
+                }, 1200);
+            }
+        }
+
+        // ================= PART 4 INFORMATION MATCHING =================
+        function startPart4Module() {
+            p4Index = 0;
+            renderPart4Profiles();
+            loadPart4Statement();
+            showSection('part4');
+        }
+
+        function renderPart4Profiles() {
+            const grid = document.getElementById('p4-profiles-grid');
+            grid.innerHTML = YEAR2_DATA.part4Profiles.map(p => `
+                <div class="bg-white dark:bg-slate-800 border-3 border-teal-300 dark:border-teal-700 rounded-2xl p-4 shadow text-center space-y-2">
+                    <div class="text-4xl">${p.icon}</div>
+                    <h4 class="font-black text-slate-900 dark:text-white text-base">${p.name}</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 font-semibold leading-snug">${p.details}</p>
+                </div>
+            `).join('');
+        }
+
+        function loadPart4Statement() {
+            const q = YEAR2_DATA.part4Questions[p4Index];
+            document.getElementById('p4-progress-text').innerText = `Statement ${p4Index + 1} of ${YEAR2_DATA.part4Questions.length}`;
+            document.getElementById('p4-statement-text').innerText = q.q;
+
+            const feedback = document.getElementById('p4-feedback-box');
+            feedback.classList.add('hidden');
+
+            const btnContainer = document.getElementById('p4-buttons-container');
+            btnContainer.innerHTML = YEAR2_DATA.part4Profiles.map(p => `
+                <button onclick="answerPart4('${p.name}')" class="p4-ans-btn bg-teal-500 hover:bg-teal-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-teal-700 bounce-btn flex items-center gap-2">
+                    <span>${p.icon}</span>
+                    <span>${p.name}</span>
+                </button>
+            `).join('');
+
+            speakText(q.q);
+        }
+
+        function answerPart4(selectedName) {
+            const q = YEAR2_DATA.part4Questions[p4Index];
+            const feedback = document.getElementById('p4-feedback-box');
+
+            document.querySelectorAll('.p4-ans-btn').forEach(b => b.classList.add('pointer-events-none'));
+
+            if (selectedName === q.answer) {
+                playSound('correct');
+                addStars(5);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `✅ Spot on! That's ${q.answer}!`;
+
+                setTimeout(() => {
+                    p4Index++;
+                    if (p4Index < YEAR2_DATA.part4Questions.length) {
+                        loadPart4Statement();
+                    } else {
+                        triggerRewardModal("Part 4 Complete! 🔍", "You matched all statements accurately!");
+                    }
+                }, 1500);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Not quite! Check the profile details again!`;
+
+                setTimeout(() => {
+                    document.querySelectorAll('.p4-ans-btn').forEach(b => b.classList.remove('pointer-events-none'));
+                }, 1200);
+            }
+        }
+
+        // ================= PART 5 SENTENCE BUILDER (REFACTORED & FIXED) =================
+        function startPart5Module() {
+            p5Index = 0;
+            loadPart5Task();
+            showSection('part5');
+        }
+
+        function loadPart5Task() {
+            const task = YEAR2_DATA.part5[p5Index];
+            selectedP5Ids = [];
+
+            document.getElementById('p5-progress-text').innerText = `Task ${p5Index + 1} of ${YEAR2_DATA.part5.length}`;
+            document.getElementById('p5-icon').innerText = task.icon;
+
+            const feedback = document.getElementById('p5-feedback-box');
+            feedback.classList.add('hidden');
+
+            // Map each word to a unique ID token
+            const tokens = task.words.map((w, idx) => ({ id: idx, text: w }));
+
+            // Shuffle array so it is not pre-arranged
+            let shuffled = shuffleArray(tokens);
+            // Guarantee shuffling if by chance it shuffled into original order
+            if (shuffled.length > 1 && shuffled.map(t => t.text).join(' ') === task.words.join(' ')) {
+                shuffled = shuffleArray(tokens);
+            }
+            currentP5Tokens = shuffled;
+
+            renderP5Areas();
+        }
+
+        function renderP5Areas() {
+            const target = document.getElementById('p5-target-area');
+            if (selectedP5Ids.length === 0) {
+                target.innerHTML = `<span class="text-xs font-bold text-slate-400 italic">Tap words below to build your sentence...</span>`;
+            } else {
+                target.innerHTML = selectedP5Ids.map(id => {
+                    const item = currentP5Tokens.find(t => t.id === id);
+                    const safeText = item.text.replace(/'/g, "&#39;");
+                    return `
+                        <button onclick="removeP5Word(${item.id})" class="bg-purple-600 hover:bg-purple-700 text-white font-extrabold px-3 py-1.5 rounded-xl text-xs shadow bounce-btn flex items-center gap-1.5">
+                            <span>${safeText}</span>
+                            <span class="text-purple-200 font-normal">✕</span>
+                        </button>
+                    `;
+                }).join('');
+            }
+
+            const pool = document.getElementById('p5-word-pool');
+            pool.innerHTML = currentP5Tokens.map(item => {
+                const isSelected = selectedP5Ids.includes(item.id);
+                const safeText = item.text.replace(/'/g, "&#39;");
+                return `
+                    <button onclick="selectP5Word(${item.id})" ${isSelected ? 'disabled' : ''} class="${isSelected ? 'opacity-20 cursor-not-allowed scale-95' : 'hover:border-purple-500'} bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-200 border-2 border-purple-300 dark:border-purple-700 font-extrabold px-3.5 py-2 rounded-2xl text-xs sm:text-sm bounce-btn transition-all">
+                        ${safeText}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectP5Word(id) {
+            if (selectedP5Ids.includes(id)) return;
+            playSound('click');
+            selectedP5Ids.push(id);
+            renderP5Areas();
+        }
+
+        function removeP5Word(id) {
+            playSound('click');
+            selectedP5Ids = selectedP5Ids.filter(i => i !== id);
+            renderP5Areas();
+        }
+
+        function resetP5Words() {
+            playSound('click');
+            selectedP5Ids = [];
+            renderP5Areas();
+        }
+
+        function checkP5Answer() {
+            const task = YEAR2_DATA.part5[p5Index];
+            const userSentence = selectedP5Ids.map(id => currentP5Tokens.find(t => t.id === id).text).join(' ');
+            const feedback = document.getElementById('p5-feedback-box');
+
+            if (userSentence === task.correct) {
+                playSound('correct');
+                addStars(10);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `🎉 Perfect! "${task.correct}"`;
+
+                setTimeout(() => {
+                    p5Index++;
+                    if (p5Index < YEAR2_DATA.part5.length) {
+                        loadPart5Task();
+                    } else {
+                        triggerRewardModal("Sentence Builder Complete! 🧩", "You completed all Part 5 sentence tasks!");
+                    }
+                }, 1600);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Not quite right. Try arranging again!`;
+            }
+        }
+
+        // ================= PART 6 WRITING =================
+        function startPart6Module() {
+            p6Index = 0;
+            loadPart6Prompt();
+            showSection('part6');
+        }
+
+        function loadPart6Prompt() {
+            const item = YEAR2_DATA.part6Prompts[p6Index];
+            document.getElementById('p6-progress-text').innerText = `Prompt ${p6Index + 1} of ${YEAR2_DATA.part6Prompts.length}`;
+            document.getElementById('p6-prompt-title').innerText = item.title;
+            document.getElementById('p6-prompt-body').innerText = item.body;
+
+            document.getElementById('p6-bullet-points').innerHTML = item.bullets.map(b => `<li>• ${b}</li>`).join('');
+            document.getElementById('p6-input').value = '';
+            document.getElementById('p6-word-count').innerText = '0 words';
+
+            document.getElementById('p6-feedback-box').classList.add('hidden');
+            document.getElementById('p6-model-box').classList.add('hidden');
+            document.getElementById('p6-model-text').innerText = item.modelAnswer;
+        }
+
+        function updateP6WordCount() {
+            const val = document.getElementById('p6-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+            const badge = document.getElementById('p6-word-count');
+            badge.innerText = `${words} words`;
+
+            if (words >= 15 && words <= 30) {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300";
+            } else {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300";
+            }
+        }
+
+        function toggleP6ModelAnswer() {
+            const box = document.getElementById('p6-model-box');
+            box.classList.toggle('hidden');
+            playSound('click');
+        }
+
+        function checkP6Submission() {
+            const val = document.getElementById('p6-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+            const feedback = document.getElementById('p6-feedback-box');
+
+            if (words < 10) {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `⚠️ Please write a bit more (at least 10–15 words) to complete Part 6!`;
+                return;
+            }
+
+            playSound('correct');
+            addStars(10);
+            triggerConfetti();
+
+            feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+            feedback.innerHTML = `🎉 Excellent short note written! +10 Stars`;
+
+            p6Index++;
+            if (p6Index < YEAR2_DATA.part6Prompts.length) {
+                setTimeout(() => loadPart6Prompt(), 1500);
+            } else {
+                setTimeout(() => {
+                    triggerRewardModal("Part 6 Completed! ✉️", "You finished all Short Writing tasks!");
+                }, 1500);
+            }
+        }
+
+        // ================= PART 7 GUIDED PASSAGE =================
+        function startPart7Module() {
+            p7Index = 0;
+            loadPart7Task();
+            showSection('part7');
+        }
+
+        function loadPart7Task() {
+            const task = YEAR2_DATA.part7Tasks[p7Index];
+            document.getElementById('p7-progress-text').innerText = `Task ${p7Index + 1} of ${YEAR2_DATA.part7Tasks.length}`;
+            document.getElementById('p7-title').innerText = task.title;
+            document.getElementById('p7-instructions').innerText = task.instructions;
+
+            document.getElementById('p7-word-bank').innerHTML = task.wordBank.map(w => `
+                <span class="bg-rose-200 dark:bg-rose-950 text-rose-800 dark:text-rose-200 font-extrabold px-3 py-1 rounded-xl text-xs">${w}</span>
+            `).join('');
+
+            const feedback = document.getElementById('p7-feedback-box');
+            feedback.classList.add('hidden');
+
+            const container = document.getElementById('p7-passage-interactive');
+            let html = '';
+
+            task.templateParts.forEach(part => {
+                if (typeof part === 'string') {
+                    html += `<span>${part}</span>`;
+                } else {
+                    html += `
+                        <select id="${part.key}" class="p7-dropdown inline-block bg-white dark:bg-slate-800 border-2 border-rose-400 text-rose-900 dark:text-rose-200 font-bold text-xs rounded-xl px-2 py-1 mx-1 outline-none">
+                            <option value="">-- Choose --</option>
+                            ${part.options.map(o => `<option value="${o}">${o}</option>`).join('')}
+                        </select>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+        }
+
+        function checkP7Answers() {
+            const task = YEAR2_DATA.part7Tasks[p7Index];
+            let allCorrect = true;
+
+            task.templateParts.forEach(part => {
+                if (typeof part === 'object') {
+                    const el = document.getElementById(part.key);
+                    if (!el || el.value !== part.correct) {
+                        allCorrect = false;
+                        if (el) el.classList.add('border-rose-600', 'bg-rose-100');
+                    } else {
+                        if (el) el.classList.remove('border-rose-400', 'bg-rose-100');
+                        if (el) el.classList.add('border-emerald-500', 'bg-emerald-100');
+                    }
+                }
+            });
+
+            const feedback = document.getElementById('p7-feedback-box');
+
+            if (allCorrect) {
+                playSound('correct');
+                addStars(10);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `🎉 All answers are correct! Great job!`;
+
+                setTimeout(() => {
+                    p7Index++;
+                    if (p7Index < YEAR2_DATA.part7Tasks.length) {
+                        loadPart7Task();
+                    } else {
+                        triggerRewardModal("Part 7 Complete! 🎨", "You finished all guided passage writing tasks!");
+                    }
+                }, 1600);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Some selections are incorrect. Check the red boxes!`;
+            }
+        }
+
+        // ================= UTILITIES & AUDIO =================
+        function addStars(num) {
+            currentStars += num;
+            document.getElementById('star-count').innerText = currentStars;
+        }
+
+        function triggerRewardModal(title, sub) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-subtitle').innerText = sub;
+            document.getElementById('reward-modal').classList.remove('hidden');
+            triggerConfetti();
+        }
+
+        function closeRewardModal() {
+            document.getElementById('reward-modal').classList.add('hidden');
+            showSection('dashboard');
+        }
+
+        function triggerConfetti() {
+            try {
+                confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+            } catch (e) {}
+        }
+
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (!speechEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(480, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.06);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.06);
+                } else if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(659, audioCtx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.2);
+                }
+            } catch (e) {}
+        }
+
+        function speakText(text) {
+            if (!speechEnabled) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.85;
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function toggleAudio() {
+            speechEnabled = !speechEnabled;
+            const icon = document.getElementById('audio-icon');
+            icon.className = speechEnabled ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark text-rose-500";
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.className = "fa-solid fa-moon";
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                icon.className = "fa-solid fa-sun text-amber-400";
+            }
+        }
+
+        window.onload = function() {
+            showSection('dashboard');
+        };
+    </script>
+</body>
+</html>
